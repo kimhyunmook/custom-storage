@@ -4,7 +4,7 @@ import {
   type ToastType,
 } from "./types/toaster";
 import { useState } from "react";
-import ToasterContainer, { Toast } from "./layout/ui";
+import ToasterContainer, { Toast } from "./layout/toast";
 import { ToasterContext } from "./toaster.hook";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type

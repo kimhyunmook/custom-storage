@@ -4,8 +4,6 @@ import styles from "../styles/toaster.module.css";
 import { ToastContinerProps, ToastProps } from "../types/toaster";
 import utils from "../../utils/indext";
 
-// import CompatibleImage from "./CompatibleImage";
-
 const { cn, useIsMounted } = utils;
 const ICONS = {
   info: checkImage,
@@ -35,7 +33,9 @@ export function Toast({ type, message, onClick, color }: ToastProps) {
 
   let icon: string = "";
   let colorCode: string = "";
-  let styleName: string = styles.Toast;
+  let styleName: string = `${styles.Toast} ${
+    type === "info" ? styles.Info : styles.Warn
+  }`;
   if (type === "info" || type === "warn") icon = ICONS[type as "info" | "warn"];
   if (color) {
     if (color.code) {

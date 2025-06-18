@@ -23,9 +23,7 @@
   position: relative;
   top: -8px;
   opacity: 0;
-  transition:
-    top 0.1s ease-in-out,
-    opacity 0.1s ease-in-out;
+  transition: top 0.1s ease-in-out, opacity 0.1s ease-in-out;
 }
 
 .Toast.mounted {
@@ -38,15 +36,17 @@
   height: 24px;
 }
 
-.Toast.info {
+.Toast.Info {
   color: #ffffff;
-  background-color: var(--brand_black);
+  background-color: rgb(85, 102, 255);
+  opacity: 1;
 }
 
-.Toast.warn {
+.Toast.Warn {
   color: #ffffff;
-  background-color: var(--error);
+  background-color: rgb(255, 69, 69);
   animation: warn 0.5s;
+  opacity: 1;
 }
 
 .WarnAnimation {

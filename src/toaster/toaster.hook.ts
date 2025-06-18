@@ -2,13 +2,14 @@ import { createContext, useContext } from "react";
 import { type ToastType } from "./types/toaster";
 
 export const ToasterContext = createContext<
-  { toaster: (type: ToastType, message: string, time?: number) => void } | undefined
+  | { toaster: (type: ToastType, message: string, time?: number) => void }
+  | undefined
 >(undefined);
 
 /**
  * @param type warn, info
- * @param message 원하는 메세지
- * @param time optional 이며 default는 2000
+ * @param message you want message
+ * @param time optional timer default 2000
  */
 export function useToaster() {
   const context = useContext(ToasterContext);

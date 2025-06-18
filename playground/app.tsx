@@ -1,12 +1,13 @@
-import { PropsWithChildren } from "react";
-import { ToasterProvider } from "../src/index";
 import "./styles/index.css";
+import Provider from "./provider";
+import TestPage from "./pages/toast";
 
-export default function App({ children }: PropsWithChildren) {
+export default function App() {
   return (
-    <div className="root">
-      <ToasterProvider>{children}</ToasterProvider>
-      1234
+    <div className="App">
+      <Provider>
+        <TestPage />
+      </Provider>
     </div>
   );
 }
