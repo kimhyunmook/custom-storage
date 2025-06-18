@@ -12,23 +12,29 @@ const ICONS = {
 
 export default function ToasterContainer({
   children,
+  tool,
   color,
 }: ToastContinerProps) {
   let styleName = styles.ToastContainer;
-  if (color) {
-    switch (color.type) {
-      case "tailwind":
+  if (tool) {
+    switch (tool) {
+      case "tailwindCSS":
         styleName = cn(
           "flex flex-col-reverse items-center justify-center gap-6",
           "pointer-events-none fixed top-16 left-1/2 z-[1000] -translate-x-1/2 transition-[height] duration-500 ease-in-out"
         );
         break;
+      case "SASS":
+        styleName = "";
+        break;
+      default:
+        styleName = styles.ToastContainer;
     }
   }
   return <div className={styleName}>{children}</div>;
 }
 
-export function Toast({ type, message, onClick, color }: ToastProps) {
+export function Toast({ type, message, onClick, color, tool }: ToastProps) {
   const isMounted = useIsMounted(100);
 
   let icon: string = "";
@@ -37,12 +43,13 @@ export function Toast({ type, message, onClick, color }: ToastProps) {
     type === "info" ? styles.Info : styles.Warn
   }`;
   if (type === "info" || type === "warn") icon = ICONS[type as "info" | "warn"];
+
   if (color) {
     if (color.code) {
       colorCode = Object.entries(color.code).find((v) => v[0] === type)![1];
     }
-    switch (color.type) {
-      case "tailwind":
+    switch (tool) {
+      case "tailwindCSS":
         if (!color.code)
           colorCode = type === "info" ? "bg-blue-500" : "bg-red-500";
         styleName = cn(
@@ -54,12 +61,15 @@ export function Toast({ type, message, onClick, color }: ToastProps) {
           type === "warn" && `${styles.WarnAnimation}`
         );
         break;
+      case "SASS":
+        break;
+      default:
     }
   }
   return (
     <div
       className={styleName}
-      style={color?.type === "css" ? { color: colorCode } : {}}
+      style={tool === "CSS" ? { color: colorCode } : {}}
       onClick={onClick}
     >
       {icon && (

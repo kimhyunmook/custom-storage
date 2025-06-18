@@ -10,6 +10,7 @@ import { ToasterContext } from "./toaster.hook";
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export default function ToasterProvider<T = {}>({
   children,
+  tool,
   color,
 }: ToastProvider<T>) {
   const [toasts, setToasts] = useState<ToastObject<T>[]>([]);
@@ -38,7 +39,7 @@ export default function ToasterProvider<T = {}>({
   return (
     <ToasterContext.Provider value={{ toaster }}>
       {children}
-      <ToasterContainer color={color}>
+      <ToasterContainer tool={tool} color={color}>
         {toasts.map((toast) => (
           <Toast
             key={toast.id}
