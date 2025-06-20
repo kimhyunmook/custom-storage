@@ -1,4 +1,4 @@
-import { useToaster } from "../../src/provider/toaster/toaster.hook";
+import { useToaster } from "../../src/provider/toaster/hook";
 
 export default function toast() {
   const toaster = useToaster();

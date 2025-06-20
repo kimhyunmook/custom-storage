@@ -5,7 +5,7 @@ import {
 } from "./types/toaster";
 import { useState } from "react";
 import ToasterContainer, { Toast } from "./layout/toast";
-import { ToasterContext } from "./toaster.hook";
+import { ToasterContext } from "./hook";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export default function ToasterProvider<T = {}>({

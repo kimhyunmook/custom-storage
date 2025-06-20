@@ -1,5 +1,5 @@
 import UiStorageProvider from "./main";
-import ToasterProvider from "./provider/toaster/toaster.provider";
+import ToasterProvider from "./provider/toaster/provider";
 
 export { ToasterProvider };
 
