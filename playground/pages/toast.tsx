@@ -1,4 +1,4 @@
-import { useToaster } from "../../src/toaster/toaster.hook";
+import { useToaster } from "../../src/provider/toaster/toaster.hook";
 
 export default function toast() {
   const toaster = useToaster();
@@ -6,7 +6,7 @@ export default function toast() {
     <div>
       <button
         onClick={() => {
-          toaster("info", "info 테스트");
+          toaster("info", "info 테스트", 33333333);
         }}
       >
         info

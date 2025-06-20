@@ -2,7 +2,7 @@ import checkImage from "../assets/check.svg";
 import outImage from "../assets/out.svg";
 import styles from "../styles/toaster.module.css";
 import { ToastContinerProps, ToastProps } from "../types/toaster";
-import utils from "../../utils/indext";
+import utils from "../../../utils/indext";
 
 const { cn, useIsMounted } = utils;
 const ICONS = {

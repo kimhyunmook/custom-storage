@@ -1,4 +1,4 @@
-import ToasterProvider from "./toaster/toaster.provider";
+import ToasterProvider from "./provider/toaster/toaster.provider";
 import { UiStorageProviderType } from "./types/main";
 export default function UiStorageProvider({
   children,
